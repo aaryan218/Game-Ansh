@@ -6,7 +6,7 @@ Production-oriented monorepo for the Gamers'G gaming platform.
 
 ```
 Game-Ansh/
-├── ars/                         # Backend API (Express.js, PostgreSQL, Redis, Socket.io)
+├── backend/                     # Backend API (Express.js, PostgreSQL, Redis, Socket.io)
 ├── frontend/                    # Frontend client application
 ├── database/                    # Database migrations, seeds, and migration scripts
 │   ├── migrations/              # SQL migration files
@@ -40,7 +40,7 @@ node database/scripts/migrate.js
 
 ### 3. Backend Setup
 ```bash
-cd ars
+cd backend
 npm install
 npm run dev
 ```
