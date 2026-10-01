@@ -1,7 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-const { pool } = require('../../ars/src/shared/db');
+const { pool } = require('../../Backend/src/shared/db');
 
 async function migrate() {
   const migrationsDir = path.join(__dirname, '../migrations');
