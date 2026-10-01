@@ -7,11 +7,12 @@ const { strictLimiter } = require('../../shared/ratelimit');
 
 const router = Router();
 
-router.post('/teams/:teamId/postings', authenticate, authorize('org'), strictLimiter, validate(createPostingSchema), createPosting);
+router.post('/teams/:teamId/postings', authenticate, authorize(['org', 'admin', 'root']), strictLimiter, validate(createPostingSchema), createPosting);
 router.get('/teams/:teamId/postings', getTeamPostings);
-router.patch('/postings/:postingId/close', authenticate, authorize('org'), closePosting);
-router.post('/postings/:postingId/apply', authenticate, authorize('player'), applyToPosting);
+router.patch('/postings/:postingId/close', authenticate, authorize(['org', 'admin', 'root']), closePosting);
+router.post('/postings/:postingId/apply', authenticate, authorize(['player', 'admin', 'root']), applyToPosting);
 router.get('/applications/:id', authenticate, getApplication);
-router.patch('/applications/:id', authenticate, authorize('org'), validate(updateApplicationSchema), updateApplicationStatus);
+router.patch('/applications/:id', authenticate, authorize(['org', 'admin', 'root']), validate(updateApplicationSchema), updateApplicationStatus);
+
 
 module.exports = router;

@@ -56,7 +56,7 @@ async function applyToPosting(playerId, postingId) {
   return result.rows[0];
 }
 
-async function updateApplicationStatus(applicationId, orgId, newStatus) {
+async function updateApplicationStatus(applicationId, orgId, {newStatus, message}) {
   const appRes = await query(
     `SELECT a.id, a.status, a.player_id, rp.team_id, t.org_id
      FROM application a

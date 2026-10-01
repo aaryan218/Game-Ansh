@@ -3,8 +3,8 @@ const { RedisStore } = require('rate-limit-redis');
 const redis = require('../redis');
 
 const writeLimiter = rateLimit({
-  windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000,
-  max: Number(process.env.RATE_LIMIT_MAX) || 30,
+  windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS),
+  max: Number(process.env.RATE_LIMIT_MAX),
   standardHeaders: true,
   legacyHeaders: false,
   store: new RedisStore({
@@ -14,8 +14,8 @@ const writeLimiter = rateLimit({
 });
 
 const strictLimiter = rateLimit({
-  windowMs: Number(process.env.STRICT_LIMIT_WINDOW_MS) || 60 * 60 * 1000,
-  max: Number(process.env.STRICT_LIMIT_MAX) || 10,
+  windowMs: Number(process.env.STRICT_LIMIT_WINDOW_MS),
+  max: Number(process.env.STRICT_LIMIT_MAX),
   standardHeaders: true,
   legacyHeaders: false,
   store: new RedisStore({

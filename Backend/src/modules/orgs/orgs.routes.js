@@ -5,8 +5,8 @@ const { authenticate, authorize } = require('../../shared/auth/middleware');
 const router = Router();
 
 router.get('/:id', getOrg);
-router.put('/:id', authenticate, authorize('org'), updateOrg);
-router.get('/:id/teams', getOrgTeams);
-router.get('/:id/players', getOrgPlayers);
+router.put('/:id', authenticate, authorize(['org', 'admin', 'root']), updateOrg);
+router.get('/:id/teams', authenticate, authorize(['org', 'admin', 'root']), getOrgTeams);
+router.get('/:id/players', authenticate, authorize(['org', 'admin', 'root']), getOrgPlayers);
 
 module.exports = router;

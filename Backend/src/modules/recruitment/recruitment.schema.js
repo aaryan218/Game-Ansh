@@ -7,6 +7,7 @@ const createPostingSchema = z.object({
 
 const updateApplicationSchema = z.object({
   status: z.enum(['shortlisted', 'accepted', 'rejected']),
+
 });
 
 module.exports = { createPostingSchema, updateApplicationSchema };

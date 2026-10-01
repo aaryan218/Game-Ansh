@@ -7,14 +7,14 @@ function decodeCursor(cursor) {
 }
 
 function buildCursorPage(rows, limit) {
-  const hasMore = rows.length > limit;
+  const hasMore = rows.length > (limit + 1);
   const data = hasMore ? rows.slice(0, limit) : rows;
   const nextCursor = hasMore ? encodeCursor(data[data.length - 1].id) : null;
   return { data, nextCursor, hasMore };
 }
 
 function parsePaginationParams(query) {
-  const limit = Math.min(Number(query.limit) || 20, 100);
+  const limit = Math.min(Number(query.limit), 100);
   const cursor = typeof query.cursor === 'string' ? decodeCursor(query.cursor) : null;
   return { limit, cursor };
 }

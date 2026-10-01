@@ -7,7 +7,7 @@ const { writeLimiter } = require('../../shared/ratelimit');
 
 const router = Router();
 
-router.get('/:threadId', authenticate, authorize('player'), getMessages);
-router.post('/:threadId', authenticate, authorize('player'), writeLimiter, validate(sendMessageSchema), sendMessage);
+router.get('/:threadId', authenticate, authorize(['player', 'admin', 'root']), getMessages);
+router.post('/:threadId', authenticate, authorize(['player', 'admin', 'root']   ), writeLimiter, validate(sendMessageSchema), sendMessage);
 
 module.exports = router;
