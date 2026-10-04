@@ -44,3 +44,5 @@ cd backend
 npm install
 npm run dev
 ```
+
+# before making frontend please read the api docs for frontend in the docs folder path: "docs/api/frontend"
