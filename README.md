@@ -1,6 +1,6 @@
 # Game-Ansh Monorepo
 
-Production-oriented monorepo for the Gamers'G gaming platform.
+Production-oriented monorepo for gaming platform.
 
 ## Repository Structure
 
